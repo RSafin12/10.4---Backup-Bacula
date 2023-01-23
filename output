@@ -1,21 +1,8 @@
-Connecting to Director localhost:9101
-1000 OK: 103 brave-dir Version: 9.4.2 (04 February 2019)
-Enter a period to cancel a command.
-*reload
-*status 
-Status available for:
-     1: Director
-     2: Storage
-     3: Client
-     4: Scheduled
-     5: Network
-     6: All
-Select daemon type for status (1-6): 6
 brave-dir Version: 9.4.2 (04 February 2019) x86_64-pc-linux-gnu ubuntu 20.04
-Daemon started 21-Jan-23 19:05, conf reloaded 22-Jan-2023 12:56:11
- Jobs: run=3, running=1 mode=0,0
- Heap: heap=278,528 smbytes=135,202 max_bytes=144,966 bufs=531 max_bufs=538
- Res: njobs=1 nclients=2 nstores=2 npools=2 ncats=1 nfsets=1 nscheds=1
+Daemon started 23-Jan-23 16:35, conf reloaded 23-Jan-2023 16:35:20
+ Jobs: run=2, running=0 mode=0,0
+ Heap: heap=278,528 smbytes=95,786 max_bytes=123,468 bufs=269 max_bufs=305
+ Res: njobs=1 nclients=1 nstores=1 npools=1 ncats=1 nfsets=1 nscheds=1
 
 Scheduled Jobs:
 Level          Type     Pri  Scheduled          Job Name           Volume
@@ -24,34 +11,32 @@ No Scheduled Jobs.
 ====
 
 Running Jobs:
-Console connected at 22-Jan-23 12:56
- JobId  Type Level     Files     Bytes  Name              Status
-======================================================================
-    18  Back Full          0         0  DefaultBackup     is waiting on Storage "brave-stor"
+Console connected at 23-Jan-23 17:54
+No Jobs running.
 ====
 
 Terminated Jobs:
  JobId  Level      Files    Bytes   Status   Finished        Name 
 ====================================================================
-     7  Full           0         0   Error    18-Jan-23 23:15 BackupClient1
-     8  Full           0         0   Error    18-Jan-23 23:25 BackupCatalog
-     9  Full           0         0   Error    19-Jan-23 23:15 BackupClient1
-    10  Full           0         0   Error    19-Jan-23 23:25 BackupCatalog
-    11  Full           0         0   Error    20-Jan-23 23:15 BackupClient1
     12  Full           0         0   Error    20-Jan-23 23:25 BackupCatalog
     13  Full           0         0   Error    21-Jan-23 18:39 DefaultBackup
     15  Full           0         0   Error    21-Jan-23 19:37 DefaultBackup
     16  Full           0         0   Error    21-Jan-23 19:47 DefaultBackup
     17  Full           0         0   Error    21-Jan-23 20:04 DefaultBackup
+    18  Full           0         0   Error    22-Jan-23 13:11 DefaultBackup
+    19  Full           0         0   Cancel   22-Jan-23 13:20 DefaultBackup
+    25  Full           0         0   Error    23-Jan-23 16:29 Backup-Brave
+    26  Full           2        29   OK       23-Jan-23 16:35 Backup-Brave
+    27  Full           2        29   OK       23-Jan-23 17:54 Backup-Brave
 
 ====
-Connecting to Storage daemon brave-stor at localhost:9103
+Connecting to Storage daemon stor-1 at 127.0.0.1:9103
 
 brave-sd Version: 9.4.2 (04 February 2019) x86_64-pc-linux-gnu ubuntu 20.04
-Daemon started 15-Jan-23 16:21. Jobs: run=16, running=0.
- Heap: heap=110,592 smbytes=51,654 max_bytes=60,964 bufs=139 max_bufs=164
+Daemon started 23-Jan-23 16:35. Jobs: run=2, running=0.
+ Heap: heap=106,496 smbytes=232,383 max_bytes=431,137 bufs=97 max_bufs=118
  Sizes: boffset_t=8 size_t=8 int32_t=4 int64_t=8 mode=0,0 newbsr=0
- Res: ndevices=4 nautochgr=2
+ Res: ndevices=1 nautochgr=0
 
 Running Jobs:
 No Jobs running.
@@ -63,60 +48,50 @@ Jobs waiting to reserve a drive:
 Terminated Jobs:
  JobId  Level    Files      Bytes   Status   Finished        Name 
 ===================================================================
-     7  Full          0         0   Error    18-Jan-23 23:15 BackupClient1
-     8  Full          0         0   Error    18-Jan-23 23:25 BackupCatalog
-     9  Full          0         0   Error    19-Jan-23 23:15 BackupClient1
-    10  Full          0         0   Error    19-Jan-23 23:25 BackupCatalog
-    11  Full          0         0   Error    20-Jan-23 23:15 BackupClient1
-    12  Full          0         0   Error    20-Jan-23 23:25 BackupCatalog
-    14  Full          0         0   Error    21-Jan-23 19:05 DefaultBackup
     15  Full          0         0   Error    21-Jan-23 19:37 DefaultBackup
     16  Full          0         0   Error    21-Jan-23 19:47 DefaultBackup
     17  Full          0         0   Error    21-Jan-23 20:04 DefaultBackup
+    19  Full          0         0   Cancel   22-Jan-23 13:20 DefaultBackup
+    20  Full          0         0   Cancel   22-Jan-23 13:26 DefaultBackup
+    21  Full          0         0   Cancel   22-Jan-23 13:59 DefaultBackup
+    23  Full          0         0   Cancel   23-Jan-23 16:05 DefaultBackup
+    25  Full          0         0   Cancel   23-Jan-23 16:29 Backup-Brave
+    26  Full          2       207   OK       23-Jan-23 16:35 Backup-Brave
+    27  Full          2       207   OK       23-Jan-23 17:54 Backup-Brave
 ====
 
 Device status:
-Autochanger "FileChgr1" with devices:
-   FileChgr1-Dev1
-   FileChgr1-Dev2
-Autochanger "FileChgr2" with devices:
-   FileChgr2-Dev1
-   FileChgr2-Dev2
 
-Device "FileChgr1-Dev1" is not open or does not exist.
-==
-
-Device "FileChgr1-Dev2" is not open or does not exist.
-==
-
-Device "FileChgr2-Dev1" is not open or does not exist.
-==
-
-Device "FileChgr2-Dev2" is not open or does not exist.
+Device File: "brave-stor" (/backup-week) is not open.
+   Available Space=265.5 MB
 ==
 ====
 
 Used Volume status:
 ====
 
+Attr spooling: 0 active jobs, 686 bytes; 2 total jobs, 686 max bytes.
 ====
 
-Connecting to Client brave-fd at localhost:9102
+Connecting to Client brave-fd at 127.0.0.1:9102
 
 brave-fd Version: 9.4.2 (04 February 2019)  x86_64-pc-linux-gnu ubuntu 20.04
-Daemon started 15-Jan-23 16:22. Jobs: run=0 running=0.
- Heap: heap=18,446,744,073,709,535,232 smbytes=29,998 max_bytes=34,789 bufs=70 max_bufs=78
+Daemon started 23-Jan-23 16:05. Jobs: run=3 running=0.
+ Heap: heap=106,496 smbytes=183,480 max_bytes=388,532 bufs=88 max_bufs=110
  Sizes: boffset_t=8 size_t=8 debug=0 trace=0 mode=0,0 bwlimit=0kB/s
  Plugin: bpipe-fd.so 
 
 Running Jobs:
-Director connected at: 22-Jan-23 12:56
+Director connected at: 23-Jan-23 17:55
 No Jobs running.
 ====
 
 Terminated Jobs:
-====
-Connecting to Client strong-fd at strong:9102
-Failed to connect to Client strong-fd.
+ JobId  Level    Files      Bytes   Status   Finished        Name 
+===================================================================
+    21  Full          0         0   Error    22-Jan-23 13:59 DefaultBackup
+    25  Full          0         0   Error    23-Jan-23 16:29 Backup-Brave
+    26  Full          2        29   OK       23-Jan-23 16:35 Backup-Brave
+    27  Full          2        29   OK       23-Jan-23 17:54 Backup-Brave
 ====
 
