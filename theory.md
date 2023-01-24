@@ -105,7 +105,7 @@ FileSet {
 
 На случай, если решено завести отдельную директорию под конфигурацию директив, то нужно выставить соответствующие права доступа
 `chmod 755 /etc/bacula/client.d/`
-`chown root:bacula /etc/bacula/client.d/  `
+`chown root:bacula /etc/bacula/client.d/`
 `chmod 644 /etc/bacula/client.d/*  `
 `chown root:bacula /etc/bacula/client.d/*`
 
