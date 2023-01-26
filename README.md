@@ -35,5 +35,54 @@
 ![result](https://github.com/RSafin12/Screenshots/blob/main/result_backup.png)
 
 
-Позже буду пробовать настроить бэкапирования со второй VM по сети. 
 Добавил файл theory с моими теоретическими заметками по теме.
+
+### Дополнение
+
+#### Настройка второго удаленного клиента
+
+Создал в одной локальной сети вторую VM - strong 
+Настроить удаленный клиент в целом дело несложное, конфиг bacula-fd:
+https://github.com/RSafin12/10.4-Backup-Bacula/blob/main/node-strong/bacula-fd.conf
+
+Единственно важно помнить, что если удаленный FD не коннектится к SD, то нужно для SD указать внешний IP, в моем случае 172.16.16.16
+По итогу бэкапирование также работает и для удаленного клиента
+![2nd_result](https://github.com/RSafin12/Screenshots/blob/main/result_strong.png)
+
+#### Настройка восстановления
+
+Я воспользовался дефолтным Job для отката из бэкапа. 
+
+```
+Job {
+  Name = "RestoreFiles"
+  Type = Restore
+  Client=brave-fd
+  Storage = stor-1
+  FileSet="Full Set"
+  Pool = def-pool
+  Messages = Standard
+  Where = /backup/restore
+  Write Bootstrap = "/var/lib/bacula/%c.bsr"
+}
+```
+RestoreJob по итогу работает корректно 
+![jobs_status](https://github.com/RSafin12/Screenshots/blob/main/status_restore.png)
+В оригинальный файл я добавил строку 
+*So, let's have a look *
+В бэкапе ее уже нет.
+![jobs_status2](https://github.com/RSafin12/Screenshots/blob/main/restore_result.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
